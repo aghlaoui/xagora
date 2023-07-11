@@ -1,0 +1,4 @@
+node_modules/
+wp-content/themes/Xagora/assets
+wp-content/themes/Xagora/src/css/webpack
+wp-content/themes/Xagora/src/js/webpack

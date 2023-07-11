@@ -1,0 +1,131 @@
+.team .items .item {
+    margin-bottom: 50px;
+}
+
+.team .items h4 {
+    margin: 0 0 10px;
+}
+
+.team .items p {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.team .share-list .nav-item {
+    margin: 0;
+}
+
+.team .items .share-list .nav-link {
+    padding: 0;
+}
+
+.team .items .share-list .nav-link:hover i {
+    opacity: 1;
+}
+
+.team .quote {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    color: var(--primary-bg-color-2);
+}
+
+.team .quote h4 {
+    margin-top: 0;
+    color: var(--white-color);
+}
+
+.team .quote p {
+    opacity: 0.85;
+}
+
+.team .quote h5 {
+    margin-bottom: 0;
+    font-family: var(--p-font);
+    font-size: 1rem;
+    color: var(--white-color);
+    opacity: 0.85;
+}
+
+.team .quote .quote-left {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.team .quote .quote-right {
+    position: absolute;
+    bottom: 35px;
+    right: 50px;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.team .quote .list-group-item {
+    border-color: var(--secondary-l-color);
+}
+
+.team .quote .list-group .list-group-item .icon {
+    color: var(--white-color);
+}
+
+.share-list {
+    margin: 0.5rem 0 0 0;
+    display: -webkit-inline-box;
+}
+
+.sidebar .share-list {
+    margin: 0;
+}
+
+.share-list .nav-link i {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    display: inline-block;
+    background: var(--primary-bg-color-3);
+    border-radius: 100px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    color: var(--primary-color);
+    -webkit-transition: all .2s ease-out 0s;
+    -o-transition: all .2s ease-out 0s;
+    -moz-transition: all .2s ease-out 0s;
+    transition: all .2s ease-out 0s;
+}
+
+.share-list .nav-link i:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.share-list li:first-child i {
+    margin-left: 0;
+}
+
+.share-list .nav-item {
+    margin: 0;
+}
+
+.share-list .nav-link {
+    padding: 0;
+}
+
+.image-over {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.person {
+    width: 100%;
+    border-radius: 5px;
+}

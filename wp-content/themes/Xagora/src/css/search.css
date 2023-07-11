@@ -1,0 +1,15 @@
+/* Search Page */
+
+.search-no-posts {
+    max-width: 100%;
+    padding: 43px 13px;
+    text-align: center;
+    background-color: var(--primary-bg-color-3);
+    border-radius: 10px;
+}
+
+.search-no-posts span {
+    font-size: 23px;
+    color: var(--secondary-color);
+    font-weight: 700;
+}

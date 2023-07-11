@@ -1,0 +1,53 @@
+.testimonials .card {
+    padding: 35px 25px;
+    background-color: var(--white-color);
+}
+
+.testimonials .card:not(.no-hover):hover {
+    transform: none;
+}
+
+.odd.testimonials .card:not(.no-hover):hover p,
+.odd.testimonials .card:not(.no-hover):hover i {
+    color: inherit;
+}
+
+.testimonials .card .logo {
+    width: auto;
+    max-width: 100%;
+    height: 25px;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.testimonials .card .quote-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.odd.testimonials .card .quote-right {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.partners img {
+    width: auto;
+    max-width: 100%;
+    height: 25px;
+    opacity: 0.5;
+    -webkit-transition: all .3s ease-out 0s;
+    -o-transition: all .3s ease-out 0s;
+    -moz-transition: all .3s ease-out 0s;
+    transition: all .3s ease-out 0s;
+}
+
+.partners img:hover {
+    opacity: 1;
+}
+
+.odd.partners img {
+    filter: brightness(0) invert(1);
+}

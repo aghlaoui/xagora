@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+html {
+    background-color: #19191f;
+}
+
+.container {
+    display: block;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.four1 {
+    animation: swing ease-in-out 1.5s infinite alternate;
+    display: inline-block;
+}
+
+.zero {
+    animation: swing2 ease-in-out 1.5s infinite alternate;
+    display: inline-block;
+}
+
+.four2 {
+    animation: swing3 ease-in-out 1.5s infinite alternate;
+    display: inline-block;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+@keyframes swing2 {
+    0% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes swing3 {
+    0% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(8deg);
+    }
+}
+
+h1 {
+    font-family: 'Fjalla One';
+    text-align: center;
+    color: #fff;
+}
+
+.home-button a {
+    text-decoration: none;
+    background-color: rgba(5, 130, 131, 0.15);
+    padding: 10px;
+    border-radius: 4px;
+    color: #00a6a6;
+    font-family: 'Fjalla One';
+    font-size: 22px;
+    letter-spacing: 4px;
+    transition: all .2s ease-out 0s;
+}
+
+.home-button a:hover {
+    background-color: #00a6a6;
+    color: #FFF;
+}

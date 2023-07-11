@@ -1,0 +1,183 @@
+.speech-box {
+    text-align: center;
+}
+
+.speech-box input::placeholder,
+.speech-box textarea::placeholder {
+    text-align: center;
+}
+
+.pricing-page-settings .acf-label {
+    display: none;
+}
+
+.pricing-page-settings .acf-row-handle {
+    display: none;
+}
+
+.pricing-name-label {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 4px 0px;
+    width: 30%;
+    box-shadow: 1px 0px 20px rgb(212 212 212);
+    border: 1px #fff solid;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 7px;
+}
+
+.pricing-name-label h3 {
+    color: #1d2327;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.pricing-page-settings .acf-actions {
+    display: none;
+}
+
+.pricing-plan-features .acf-actions {
+    display: block;
+}
+
+#acf-group_6494cefc5dfe7 .postbox-header {
+    display: none;
+}
+
+.plan-icon-select .acf-label {
+    display: unset;
+}
+
+.acf-input .plan-icon-select .acf-label label {
+    display: none;
+}
+
+.plans-details-features .acf-input {
+    margin: auto 0;
+}
+
+.plans-details-features {
+    display: grid;
+}
+
+.pricing-plan-features .acf-row-handle.remove {
+    display: table-cell;
+}
+
+.image-input-acf {
+    text-align: center;
+}
+
+.image-input-acf .acf-image-uploader {
+    display: flex;
+    justify-content: center;
+}
+
+.center-item-costume {
+    text-align: center;
+}
+
+#acf-group_6496e0b703a6e .postbox-header {
+    display: none;
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+#acf-group_6496fd6e87499 .postbox-header {
+    display: none;
+}
+
+.use-project-link .acf-label {
+    display: none;
+}
+
+.use-project-link,
+.acf-field-6498246235dcd,
+.acf-field-6497034997f39 {
+    border-top: unset !important;
+    padding-top: unset !important;
+}
+
+.partner-link-groupe .acf-label {
+    display: none;
+}
+
+.partner-link-groupe .acf-input .acf-fields {
+    border: unset !important;
+}
+
+.acf-field-6497034997f39 .acf-label,
+.acf-field-6498246235dcd .acf-label {
+    display: block;
+}
+
+#acf-group_6499aaa18b0cf .postbox-header {
+    display: none;
+}
+
+.slider-links-groupe .acf-label {
+    display: none;
+}
+
+.slider-links-groupe,
+.image-link-to-vid {
+    padding: 0 !important;
+}
+
+.slider-links-groupe .acf-fields.-top.-border {
+    border: unset;
+}
+
+.button-link-class .acf-label {
+    display: block !important;
+}
+
+.costume-link-switch {
+    border-top: unset !important;
+    padding: 0 0px 10px 12px !important;
+}
+
+#acf-group_649ae86c42c19 .postbox-header {
+    display: none;
+}
+
+.image-link-to-vid .acf-label {
+    display: none;
+}
+
+.image-link-to-vid .acf-fields.-top.-border {
+    border: unset;
+}
+
+.acf-field-649c38b45e617.costume-link-switch {
+    text-align: center;
+}
+
+.use-new-numbers {
+    border-top: unset !important;
+    text-align: center;
+}
+
+.use-new-numbers .acf-label {
+    display: none;
+}
+
+.my-acf-none-display {
+    display: none;
+}
+
+.team-deactivated .acf-label {
+    display: none;
+}
+
+.team-deactivated {
+    text-align: center;
+}
+
+.team-hidden-home {
+    display: none;
+}
