@@ -226,6 +226,10 @@
     content: "\e090";
 }
 
+.icon-close:before {
+    content: "\e082";
+}
+
 .icon-arrow-down:before {
     content: "\e604";
 }
