@@ -1,5 +1,5 @@
 <?php
-define( 'WP_CACHE', true ); // Added by WP Rocket
+define('WP_CACHE', true); // Added by WP Rocket
 
 /**
  * The base configuration for WordPress
@@ -23,22 +23,23 @@ define( 'WP_CACHE', true ); // Added by WP Rocket
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'local' );
-
-/** Database username */
-define( 'DB_USER', 'root' );
-
-/** Database password */
-define( 'DB_PASSWORD', 'root' );
-
-/** Database hostname */
-define( 'DB_HOST', 'localhost' );
+if (strstr($_SERVER['SERVER_NAME'], 'xagora.local')) {
+	define('DB_NAME', 'local');
+	define('DB_USER', 'root');
+	define('DB_PASSWORD', 'root');
+	define('DB_HOST', 'localhost');
+} else {
+	define('DB_NAME', 'if0_34592535_xagora');
+	define('DB_USER', 'if0_34592535');
+	define('DB_PASSWORD', 'jS64ycTOV17');
+	define('DB_HOST', '127.0.0.1');
+}
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+define('DB_CHARSET', 'utf8');
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define('DB_COLLATE', '');
 
 /**#@+
  * Authentication unique keys and salts.
@@ -88,16 +89,16 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-	define( 'WP_DEBUG', false );
+if (!defined('WP_DEBUG')) {
+	define('WP_DEBUG', false);
 }
 
-define( 'WP_ENVIRONMENT_TYPE', 'local' );
+define('WP_ENVIRONMENT_TYPE', 'local');
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+if (!defined('ABSPATH')) {
+	define('ABSPATH', __DIR__ . '/');
 }
 
 /** Sets up WordPress vars and included files. */
