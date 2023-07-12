@@ -5,6 +5,8 @@ function xakora_scripts()
 
     /************************* Styles ************************* */
     wp_enqueue_style('bootstrap', '//cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css');
+    // wp_enqueue_style('pooping', '//fonts.googleapis.com/css2?family=Poppins:wght@800;900&amp;display=swap');
+    // wp_enqueue_style('montserat', '//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap');
 
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', '//code.jquery.com/jquery-3.6.0.min.js', array(), '', true);
