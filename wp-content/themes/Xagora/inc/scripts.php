@@ -102,3 +102,10 @@ function crunchify_remove_plugin_stylesheet()
     wp_deregister_style('newsletter');
 }
 add_action('wp_enqueue_scripts', 'crunchify_remove_plugin_stylesheet', 100);
+
+
+function mytheme_customize_controls_scripts()
+{
+    wp_enqueue_script('mytheme-customizer-script', get_theme_file_uri('src/js/customizer.js'), array('jquery', 'customize-controls'), '1.0', true);
+}
+add_action('customize_controls_enqueue_scripts', 'mytheme_customize_controls_scripts');

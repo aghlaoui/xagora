@@ -1500,6 +1500,11 @@ header .navbar-expand .navbar-brand img {
     height: var(--nav-brand-height);
 }
 
+header .navbar-expand .navbar-brand img.logo-height {
+    height: 50px;
+}
+
+
 header .navbar-expand .navbar-brand .brand {
     letter-spacing: 5px;
 }
