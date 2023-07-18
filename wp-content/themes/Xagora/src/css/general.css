@@ -1501,7 +1501,8 @@ header .navbar-expand .navbar-brand img {
 }
 
 header .navbar-expand .navbar-brand img.logo-height {
-    height: 50px;
+    height: 55px !important;
+    width: auto;
 }
 
 
