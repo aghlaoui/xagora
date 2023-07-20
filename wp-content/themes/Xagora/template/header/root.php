@@ -106,6 +106,7 @@
 
     <?php else : ?> :root {
         --section-3-bg-image: url('<?php echo get_theme_file_uri('src/img/bg-3.webp') ?>');
+        --section-1-bg-color: #ffffff;
     }
 
     <?php endif; ?>
