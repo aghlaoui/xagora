@@ -38,7 +38,11 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#contact" class="mt-4 btn outline-button smooth-anchor"><?php echo __('GET IN TOUCH', 'xagora') ?></a>
+            <?php if (is_front_page() || (get_post_type() == 'project' && is_single()) || get_post_type() == 'service') : ?>
+                <a href="#contact" class="mt-4 btn outline-button smooth-anchor"><?php echo __('GET IN TOUCH', 'xagora') ?></a>
+            <?php else : ?>
+                <a href="<?php echo esc_url(site_url('contact-us')) ?>" class="mt-4 btn outline-button smooth-anchor"><?php echo __('GET IN TOUCH', 'xagora') ?></a>
+            <?php endif; ?>
         </li>
     </ul>
 </div>
