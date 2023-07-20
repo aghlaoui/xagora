@@ -254,3 +254,7 @@
     color: var(--secondary-color);
     font-weight: 700;
 }
+
+#about .list-group {
+    align-items: baseline;
+}

@@ -1,0 +1,330 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Xagora\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-20 22:04+0000\n"
+"PO-Revision-Date: 2023-07-20 22:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: French (France)\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"X-Domain: xagora"
+
+#: inc/my-functions.php:19
+msgid " Days Ago"
+msgstr "  Il y a quelques jours"
+
+#: inc/my-functions.php:17
+msgid " Yesterday"
+msgstr "  Hier"
+
+#: template/footer/newsletter.php:8
+msgid "<span class=\"featured\"><span>Know</span></span> First"
+msgstr "<span class=\"featured\"><span>Savoir</span></span> d'abord"
+
+#: template/pricing/table.php:7
+msgid "<span class=\"featured\"><span>Pricing</span></span> Table"
+msgstr "<span class=\"featured\"><span>Tableau </span></span> des prix"
+
+#: page-team.php:15 template/home/team.php:10
+msgid "<span class=\"featured\"><span>Team</span></span> of Experts"
+msgstr "<span class=\"featured\"><span>Équipe </span></span> d'experts"
+
+#: archive-project.php:14
+msgid "Actions & <span class=\"featured\"><span>Projects</span></span>"
+msgstr "Actions & <span class=\"featured\"><span>Projects</span></span>"
+
+#: archive-project.php:22
+msgid "All"
+msgstr "Tous"
+
+#: template/blog/sidebar/categories.php:4
+msgid "Categories"
+msgstr "Categories"
+
+#: inc/customizer/logo.php:18
+msgid ""
+"Check to Use Logo (When it is unchecked you are using the site name as a "
+"logo)"
+msgstr ""
+"Cocher pour utiliser un logo (si la case n'est pas cochée, le nom du site "
+"est utilisé comme logo)."
+
+#: template/header/navbar.php:60 template/header/navbar.php:62
+msgid "CONTACT US"
+msgstr "CONTACTEZ-NOUS"
+
+#: template/contact.php:26
+msgid "Contact Us"
+msgstr "Nous contacter"
+
+#: template/contact.php:27
+msgid "Contact us for any inquiries or to schedule an appointment."
+msgstr "Contactez-nous pour toute question ou pour prendre rendez-vous."
+
+#: template/footer/newsletter.php:18 template/home/newsletter.php:17
+msgid "Email"
+msgstr "Courriel"
+
+#: inc/customizer/details.php:39
+msgid "Email adress"
+msgstr "Adresse électronique"
+
+#: search.php:30 template/footer/search.php:31
+#: template/blog/sidebar/search.php:8 template/blog/single/most-views.php:13
+msgid "Enter Keywords"
+msgstr "Saisir les mots-clés"
+
+#: template/home/blog.php:10
+msgid "Every week we publish content about what is best in the business world."
+msgstr ""
+"Chaque semaine, nous publions du contenu sur ce qui se fait de mieux dans le "
+"monde des affaires."
+
+#: template/blog/single/most-views.php:9
+msgid "Featured posts"
+msgstr "Articles à la une"
+
+#: template/footer/newsletter.php:9
+msgid ""
+"Follow closely and receive content about our company and the news of the "
+"current market."
+msgstr ""
+"Suivez de près et recevez du contenu sur notre entreprise et les nouvelles "
+"du marché actuel."
+
+#: inc/acf-filters.php:86 inc/acf-filters.php:99 inc/acf-filters.php:165
+msgid "from here"
+msgstr "à partir d'ici"
+
+#: template/contact.php:14
+msgid "Get in <span class=\"featured\"><span>Touch</span></span>"
+msgstr "Contactez-<span class=\"featured\"><span>nous</span></span>"
+
+#: template/footer/contact.php:41 template/home/slider.php:74
+#: template/service/services.php:10 template/service/single/signature.php:23
+msgid "GET IN TOUCH"
+msgstr "CONTACTEZ-NOUS"
+
+#. Author URI of the theme
+msgid "https://zakaryaaghlaoui.com/"
+msgstr ""
+
+#: template/home/blog.php:9
+msgid "Latest <span class=\"featured\"><span>News</span></span>"
+msgstr "Dernières <span class=\"featured\"><span>nouvelles</span></span>"
+
+#: template/pricing/table.php:25
+msgid "Most<br>Popular"
+msgstr "Les plus<br>Populaires"
+
+#: template/blog/single/most-views.php:10
+msgid "Most<br>Viewed<br>Blog Posts"
+msgstr "Articles<br>de blog<br>les plus consultés"
+
+#: template/footer/newsletter.php:15 template/home/newsletter.php:14
+msgid "Name"
+msgstr "Nom"
+
+#: template/footer/newsletter.php:7
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: template/about/about.php:45
+msgid "No About Content Available"
+msgstr "Pas de contenu disponible"
+
+#: template/blog/sidebar/categories.php:18
+msgid "No Categories Available"
+msgstr "Aucune catégorie disponible"
+
+#: template/about/numbers.php:33
+msgid "No Content Available"
+msgstr "Pas de contenu disponible"
+
+#: template/blog/posts.php:64
+msgid "No Posts Are Available!"
+msgstr "Aucun poste n'est disponible !"
+
+#: template/project/content.php:34
+msgid "No Project content available."
+msgstr "Pas de contenu de projet disponible."
+
+#: template/service/single/content.php:31
+msgid "No service content available."
+msgstr "Aucun contenu de service n'est disponible."
+
+#: template/blog/sidebar/tags.php:19
+msgid "No Tags Available"
+msgstr "Aucune étiquette disponible"
+
+#: search.php:82
+msgid "Nothing Found!"
+msgstr "Rien n'a été trouvé !"
+
+#: inc/customizer/details.php:50
+msgid "Office adress"
+msgstr "Adresse du bureau"
+
+#: inc/customizer/details.php:58
+msgid "Opening Hours"
+msgstr "Heures d'ouverture"
+
+#: template/service/single/content.php:41
+msgid "Other Services"
+msgstr "Autres services"
+
+#: template/home/blog.php:8
+msgid "Our editorial content"
+msgstr "Notre contenu éditorial"
+
+#: 404.php:44
+msgid "PAGE NOT FOUND"
+msgstr "PAGE NON TROUVEE"
+
+#: inc/customizer/details.php:30
+msgid "Phone number"
+msgstr "Numéro de téléphone"
+
+#: template/pricing/table.php:6
+msgid "Plans"
+msgstr "Plans"
+
+#: inc/option-pages.php:52 inc/option-pages.php:53
+msgid "Posts Settings"
+msgstr "Paramètres des postes"
+
+#: inc/option-pages.php:17
+msgid "Pricing Page"
+msgstr "Page des prix"
+
+#: inc/option-pages.php:16
+msgid "Pricing Page Settings"
+msgstr "Paramètres du page des prix"
+
+#: inc/option-pages.php:25 inc/option-pages.php:26
+msgid "Pricing Settings"
+msgstr "Réglages des prix"
+
+#: template/project/content.php:45
+msgid "Project Photos"
+msgstr "Photos du projet"
+
+#: inc/option-pages.php:59 inc/option-pages.php:60
+msgid "Projects Settings"
+msgstr "Paramètres des projets"
+
+#: search.php:74
+msgid "Read more"
+msgstr "En savoir plus"
+
+#: search.php:35 template/footer/search.php:36
+#: template/blog/sidebar/search.php:13 template/blog/single/most-views.php:18
+msgid "SEARCH"
+msgstr "RECHERCHE"
+
+#: template/blog/sidebar/search.php:5
+msgid "Search"
+msgstr "Recherche"
+
+#: search.php:13
+msgid "Search results for"
+msgstr "Résultats de recherche pour"
+
+#: template/home/blog.php:13 template/home/services.php:12
+msgid "SEE ALL"
+msgstr "VOIR TOUS"
+
+#: template/contact.php:13
+msgid "Send a message"
+msgstr "Envoyer un message"
+
+#: inc/option-pages.php:9 inc/option-pages.php:10
+msgid "Services Settings"
+msgstr "Paramètres des services"
+
+#: template/blog/sidebar/share.php:8
+msgid "Share"
+msgstr "Partager"
+
+#: inc/option-pages.php:42 inc/option-pages.php:43
+msgid "Site Settings"
+msgstr "Paramètres du site"
+
+#: template/footer/newsletter.php:21 template/home/newsletter.php:20
+msgid "SUBSCRIBE"
+msgstr "S'ABONNER"
+
+#: template/blog/sidebar/tags.php:5
+msgid "Tags"
+msgstr "Tags"
+
+#: single.php:125
+msgid "Tags:"
+msgstr "Tags:"
+
+#: inc/option-pages.php:33
+msgid "Team"
+msgstr "Équipe"
+
+#: inc/option-pages.php:32
+msgid "Team People"
+msgstr "Personnes de l'équipe"
+
+#: inc/acf-filters.php:165
+msgid "The Team Section is deactivated you have to activate it "
+msgstr "La section Équipe est désactivée, vous devez l'activer. "
+
+#: inc/my-functions.php:15
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: template/contact.php:49
+msgid "VIEW MAP"
+msgstr "VOIR LA CARTE"
+
+#: archive-project.php:13
+msgid "We do more for everyone"
+msgstr "Nous faisons plus pour tout le monde"
+
+#: page-team.php:14 template/home/team.php:9
+msgid "We like what we do"
+msgstr "Nous aimons ce que nous faisons"
+
+#: template/contact.php:15
+msgid "We will respond to your message as soon as possible."
+msgstr "Nous répondrons à votre message dans les plus brefs délais."
+
+#: template/contact.php:28
+msgid "We would love to hear from you!"
+msgstr "Nous serions ravis de vous entendre !"
+
+#: template/footer/search.php:13
+msgid "What are you looking for?"
+msgstr "Que recherchez-vous ?"
+
+#. Name of the theme
+msgid "Xagora"
+msgstr ""
+
+#. Description of the theme
+msgid "Xagora it's a business Theme"
+msgstr "Xagora c'est un thème d'entreprise"
+
+#: inc/acf-filters.php:99
+msgid "You are currenty using about page numbers you can edit "
+msgstr ""
+"Vous utilisez actuellement environ numéros de page que vous pouvez modifier "
+
+#: inc/acf-filters.php:86
+msgid "You can edit partners"
+msgstr "Vous pouvez modifier les partenaires"
+
+#. Author of the theme
+msgid "Zakarya AGHLAOUI"
+msgstr ""

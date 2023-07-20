@@ -42,6 +42,8 @@ function xakora_scripts()
         wp_enqueue_script('home', get_theme_file_uri('build/homeJs.js'), array(), '', true);
     } elseif (is_404()) {
         wp_enqueue_style('404', get_theme_file_uri('build/css/Css404.css'));
+    } else {
+        wp_enqueue_style('general', get_theme_file_uri('build/css/generalCss.css'));
     }
     wp_enqueue_style('icons', get_theme_file_uri('build/css/icons.css'));
 

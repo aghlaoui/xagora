@@ -7,7 +7,7 @@
                 <div class="col-12 col-md-6 pr-md-5 align-self-center text-center text-md-left text">
                     <div data-aos="fade-up" class="row intro">
                         <div class="col-12 p-0">
-                            <span class="pre-title m-auto m-md-0"><?php echo sanitize_text_field('aud_subtitle', $id) ?></span>
+                            <span class="pre-title m-auto m-md-0"><?php echo sanitize_text_field(get_field('aud_subtitle', $id)) ?></span>
                             <h2><?php replaceWithSpanTags(get_field('aud_title', $id)) ?></h2>
                             <p><?php echo sanitize_text_field(get_field('aud_description', $id)) ?></p>
                         </div>
