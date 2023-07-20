@@ -34,6 +34,8 @@ function xakora_scripts()
 
         wp_enqueue_script('shuffle', get_theme_file_uri('src/js/vendor/shuffle.min.js'), array(), '', true);
         wp_enqueue_script('project', get_theme_file_uri('build/projectJs.js'), array(), '', true);
+    } elseif (is_page('partners')) {
+        wp_enqueue_style('partners', get_theme_file_uri('build/css/partnersCss.css'));
     } elseif (is_front_page()) {
         wp_enqueue_style('home', get_theme_file_uri('build/css/homeCss.css'));
 

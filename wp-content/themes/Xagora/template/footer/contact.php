@@ -3,13 +3,19 @@
     <!-- Navbar Brand-->
     <a class="navbar-brand" href="<?php echo esc_url(home_url()) ?>">
         <?php
-        $name = sanitize_text_field(get_bloginfo('name'));
-        $result = separateString($name);
-        $part1 = strtoupper($result[0]);
-        $part2 = strtoupper($result[1]);
-        printf('<span class="brand"> <span class="featured"> <span class="first">%s</span> </span> <span class="last">%s</span> </span>', $part1, $part2);
+        $useLogo = get_theme_mod('use_logo');
+        $logo = esc_url(get_theme_mod('logo_img'));
+        if ($useLogo && $logo) {
+            printf('<img src="%s" alt="Logo" class="logo-height">', $logo);
+        } else {
+            $name = sanitize_text_field(get_bloginfo('name'));
+            $result = separateString($name);
+            $part1 = strtoupper($result[0]);
+            $part2 = strtoupper($result[1]);
+            printf('<span class="brand"> <span class="featured"> <span class="first">%s</span> </span> <span class="last">%s</span> </span>', $part1, $part2);
+        }
+
         ?>
-        <!-- Custom Logo <img src="assets/images/logo.svg" alt="NEXGEN"> -->
     </a>
     <p><?php echo sanitize_text_field(get_bloginfo('description')) ?></p>
     <ul class="navbar-nav">

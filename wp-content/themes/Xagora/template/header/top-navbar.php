@@ -29,16 +29,17 @@
         </ul>
 
         <!-- Navbar Icons -->
-        <ul class="navbar-nav icons">
-            <?php
-            while (have_rows('site_social_media', 'option')) {
-                the_row();
-                $icon = sanitize_text_field(get_sub_field('platform')) ?: '';
-                $link = esc_url(get_sub_field('link')) ?: '#';
-                printf('<li class="nav-item social"><a href="%s" class="nav-link"><i class="fab %s"></i></a></li>', $link, $icon);
-            }
-            ?>
-        </ul>
-
+        <?php if (have_rows('site_social_media', 'option')) :  ?>
+            <ul class="navbar-nav icons">
+                <?php
+                while (have_rows('site_social_media', 'option')) {
+                    the_row();
+                    $icon = sanitize_text_field(get_sub_field('platform')) ?: '';
+                    $link = esc_url(get_sub_field('link')) ?: '#';
+                    printf('<li class="nav-item social"><a href="%s" class="nav-link"><i class="fab %s"></i></a></li>', $link, $icon);
+                }
+                ?>
+            </ul>
+        <?php endif; ?>
     </div>
 </nav>

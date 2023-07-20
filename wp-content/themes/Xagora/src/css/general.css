@@ -1500,7 +1500,8 @@ header .navbar-expand .navbar-brand img {
     height: var(--nav-brand-height);
 }
 
-header .navbar-expand .navbar-brand img.logo-height {
+header .navbar-expand .navbar-brand img.logo-height,
+footer .footer-left .navbar-brand img.logo-height {
     height: 55px !important;
     width: auto;
 }
@@ -3012,6 +3013,7 @@ footer .copyright p {
     width: 100%;
     padding: 45px;
     border-radius: 10px;
+    height: 100%;
     border: none;
     background-color: var(--card-bg-color);
     -webkit-transition: all .4s ease-out 0s;
