@@ -322,3 +322,7 @@ msgstr ""
 #. Author of the theme
 msgid "Zakarya AGHLAOUI"
 msgstr ""
+
+#: inc/cf7-hooks.php:39
+msgid "Other"
+msgstr ""

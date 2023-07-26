@@ -1,0 +1,25 @@
+ body {
+     background-color: #f8f9fa;
+ }
+
+ .hide-div {
+     display: none;
+ }
+
+
+ label {
+     font-size: 12px;
+     font-weight: 600;
+ }
+
+ .alert-center {
+     margin: 0 auto;
+ }
+
+ .form-to-pdf {
+     display: contents;
+ }
+
+ nav {
+     border-bottom: 1px solid #ccc;
+ }

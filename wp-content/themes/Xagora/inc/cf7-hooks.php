@@ -36,7 +36,7 @@ function cf7_populate_dropdown_from_post_type($tag, $unused)
         foreach ($posts as $post) {
             $options[] = $post->post_title; // You can change this to the desired post attribute
         }
-        $options[] = 'Other';
+        $options[] = __('Other', 'xagora');
     }
 
     $tag['raw_values'] = $options;
