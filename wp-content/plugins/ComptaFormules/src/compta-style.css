@@ -1,25 +1,29 @@
- body {
-     background-color: #f8f9fa;
- }
+body {
+    background-color: #f8f9fa;
+}
 
- .hide-div {
-     display: none;
- }
+.hide-div {
+    display: none;
+}
 
 
- label {
-     font-size: 12px;
-     font-weight: 600;
- }
+label {
+    font-size: 12px;
+    font-weight: 600;
+}
 
- .alert-center {
-     margin: 0 auto;
- }
+.alert-center {
+    margin: 0 auto;
+}
 
- .form-to-pdf {
-     display: contents;
- }
+.form-to-pdf {
+    display: contents;
+}
 
- nav {
-     border-bottom: 1px solid #ccc;
- }
+nav {
+    border-bottom: 1px solid #ccc;
+}
+
+.docs-table form {
+    display: contents;
+}

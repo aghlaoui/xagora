@@ -1,3 +1,19 @@
+<?php
+
+use Svg\Tag\AbstractTag;
+
+if (!is_user_logged_in()) {
+    wp_safe_redirect(esc_url(site_url('login')));
+    exit;
+} elseif (!current_user_can('manage_options')) {
+    wp_safe_redirect(esc_url(home_url()));
+    exit;
+}
+
+include_once WP_PLUGIN_DIR . '/ComptaFormules/template/navbar.php';
+require_once plugin_dir_path(__FILE__) . 'convert-docx.php';
+$convertToDocx = new ConvertToDocx();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,20 +25,19 @@
 </head>
 
 <body>
-    <?php include_once WP_PLUGIN_DIR . '/ComptaFormules/template/navbar.php' ?>
     <?php
-
     global $wpdb;
     $tableName = $wpdb->prefix . 'company_status';
     $query = $wpdb->prepare("SELECT * FROM $tableName");
     $status = $wpdb->get_results($query);
     ?>
+
     <div class="container mt-5">
+        <?php echo $convertToDocx->notice; ?>
         <h1 class="display-6 mb-5 text-center">Liste Des Status:</h1>
-        <table class="table table-striped">
+        <table class="table table-striped docs-table">
             <thead>
                 <tr>
-
                     <th scope="col">Nom complet</th>
                     <th scope="col">Entreprise</th>
                     <th scope="col">DOCX</th>
@@ -35,42 +50,34 @@
                         <td><?php echo $statu->fullname ?></td>
                         <td><?php echo $statu->companyname ?></td>
                         <td>
-                            <?php
-                            $docx = $statu->docxfile . '.docx';
-                            $downloadDocx = esc_url(WP_PLUGIN_URL . '/ComptaFormules/src/saved-doc/' . $docx);
 
+                            <?php
+                            $downloadDocx = esc_url($convertToDocx->generateDOCXLink($statu->docxfile));
                             echo '<a target="_blank" class="btn btn-primary btn-sm" href="' . $downloadDocx . '">Download DOCX</a>';
                             ?>
+
                         </td>
                         <td>
-                            <form action="">
-                                <button class="btn btn-warning btn-sm">Convert PDF</button>
-                            </form>
+                            <?php if ($statu->pdffile === '0') :  ?>
+
+                                <form action="<?php echo esc_url(admin_url('admin-post.php')) ?>" method="POST">
+                                    <input type="hidden" name="action" value="converttopdf">
+                                    <input type="hidden" name="idstatuts" value="<?php echo $statu->id ?>">
+                                    <button class="btn btn-warning btn-sm">Convert PDF</button>
+                                </form>
+
+                            <?php else : ?>
+
+                                <?php
+                                $downloadPDF = esc_url($convertToDocx->generatePDFLink($statu->pdffile));
+                                echo '<a target="_blank" href="' . $downloadPDF . '" class="btn btn-danger btn-sm">Download PDF</a>';
+                                ?>
+
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
-                <!-- <tr>
 
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>
-                        <form action="">
-                            <button class="btn btn-primary btn-sm">Download DOCX</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="">
-                            <button class="btn btn-primary btn-sm">Download PDF</button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr> -->
             </tbody>
         </table>
     </div>

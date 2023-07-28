@@ -7,64 +7,11 @@ if (!is_user_logged_in() || !current_user_can('manage_options')) {
 require_once plugin_dir_path(__FILE__) . 'convert-docx.php';
 
 $convertToDocx = new ConvertToDocx();
-
-$comptaFormules = new ComptaFormule();
 ?>
 
 <head>
     <?php wp_head(); ?>
 </head>
-<?php
-
-/**
- * Pdf Convertion
- */
-if (isset($_POST['converttopdf'])) {
-
-    $documentPath = (isset($_POST['docxpath'])) ? WP_PLUGIN_DIR . '/ComptaFormules/src/saved-doc/' . $_POST['docxpath'] : '';
-    if (!empty($documentPath)) {
-        $FileHandle = fopen(WP_PLUGIN_DIR . '/ComptaFormules/src/saved-doc/test.pdf', 'w+');
-
-        $curl = curl_init();
-
-        $instructions = '{
-                "parts": [
-            {
-                "file": "document"
-            }
-            ]
-            }';
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.pspdfkit.com/build',
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_POSTFIELDS => array(
-                'instructions' => $instructions,
-                'document' => new CURLFILE($documentPath)
-            ),
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer pdf_live_7hNqDrCVlrkn4mX4qe6X76aEe8avc43fvHRClTemaxG'
-            ),
-            CURLOPT_FILE => $FileHandle,
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-
-        fclose($FileHandle);
-        if (file_exists(WP_PLUGIN_DIR . '/ComptaFormules/src/saved-doc/test.pdf')) {
-            $classPDFalert = '';
-            $downloadPDF = WP_PLUGIN_DIR . '/ComptaFormules/src/saved-doc/test.pdf';
-        }
-    } else {
-        echo 'No Document to convert';
-    }
-}
-
-?>
 
 <body>
     <!-- NavBar -->

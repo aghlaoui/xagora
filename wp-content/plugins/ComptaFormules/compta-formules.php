@@ -28,8 +28,19 @@ class ComptaFormule
         add_action('wp_enqueue_scripts', [$this, 'loadAssets']);
         add_filter('template_include', [$this, 'loadTemplate'], 99);
         register_activation_hook(__FILE__, [$this, 'custom_folder_plugin_activate']);
+
         add_action('admin_post_generatedocx', [$this, 'generatedocx']);
+        add_action('admin_post_nopriv_generatedocx', [$this, 'generatedocx']);
+
+        add_action('admin_post_nopriv_converttopdf', [$this, 'converttopdf']);
+        add_action('admin_post_converttopdf', [$this, 'converttopdf']);
+
         add_action('init', [$this, 'comptaFormules_init_session']);
+
+        add_action('wp_login_failed', [$this, 'front_end_login_fail']);
+        add_action('authenticate', [$this, 'check_username_password'], 1, 3);
+
+        add_action('lostpassword_user_data', [$this, 'forgot_password_validate']);
     }
     function onActivate()
     {
@@ -39,16 +50,127 @@ class ComptaFormule
             fullname VARCHAR(60) NOT NULL DEFAULT '',
             companyname VARCHAR(60) NOT NULL DEFAULT '',
             docxfile VARCHAR(60) NOT NULL DEFAULT '',
-            pdffile VARCHAR(60) NOT NULL DEFAULT '',
+            pdffile VARCHAR(60) NOT NULL DEFAULT '0',
             PRIMARY KEY  (id)
         ) $this->charset;");
     }
 
+    function forgot_password_validate($user_data)
+    {
+        if (!$user_data) {
+            wp_safe_redirect(site_url('lost-password') . '?login=failed');
+            $_SESSION['loginerr'] = true;
+            exit;
+        } else {
+            $_SESSION['passsent'] = true;
+        }
+        return $user_data;
+    }
+
+    function front_end_login_fail($username)
+    {
+        // Getting URL of the login page
+        $referrer = $_SERVER['HTTP_REFERER'];
+        // if there's a valid referrer, and it's not the default log-in screen
+        if (!empty($referrer) && !strstr($referrer, 'wp-login') && !strstr($referrer, 'wp-admin')) {
+            $_SESSION['loginerr'] = true;
+            wp_safe_redirect(site_url('login') . "?login=failed");
+            exit;
+        }
+    }
+
+
+    function check_username_password($login, $username, $password)
+    {
+        // Getting URL of the login page
+        $referrer = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : null;
+
+        // if there's a valid referrer, and it's not the default log-in screen
+        if (!empty($referrer) && !strstr($referrer, 'wp-login') && !strstr($referrer, 'wp-admin')) {
+            if ($username == "" || $password == "") {
+                $_SESSION['loginerr'] = true;
+                wp_safe_redirect(site_url('login') . "?login=empty");
+                exit;
+            }
+        }
+
+        if (!empty($referrer) && !strstr($referrer, 'lostpassword') && !strstr($referrer, 'wp-admin')) {
+            if ($username == "") {
+                $_SESSION['loginerr'] = true;
+                wp_safe_redirect(site_url('login') . "?login=empty");
+                exit;
+            }
+        }
+    }
     function comptaFormules_init_session()
     {
         if (!session_id()) {
             session_start();
         }
+    }
+
+    function converttopdf()
+    {
+        if (current_user_can('administrator')) {
+            global $wpdb;
+            $statusID = sanitize_text_field($_POST['idstatuts']);
+            $query = $wpdb->prepare("SELECT * FROM $this->tableName WHERE id = $statusID");
+            $status = $wpdb->get_results($query)[0];
+
+            /**
+             * Generate PDF File
+             */
+            if ($status->pdffile === '0') {
+                $statusDOCX = wp_upload_dir()['basedir'] . '/status/' .  $status->docxfile . '.docx';
+
+                $fileName = $this->generateFileName($status->companyname);
+                $filePath = wp_upload_dir()['basedir'] . '/status/' . $fileName . '.pdf';
+
+                $FileHandle = fopen($filePath, 'w+');
+
+                $curl = curl_init();
+
+                $instructions = '{
+                "parts":[
+                            {
+                                "file": "document"
+                            }
+                        ]
+                }';
+
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.pspdfkit.com/build',
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_POSTFIELDS => array(
+                        'instructions' => $instructions,
+                        'document' => new CURLFILE($statusDOCX)
+                    ),
+                    CURLOPT_HTTPHEADER => array(
+                        'Authorization: Bearer pdf_live_7hNqDrCVlrkn4mX4qe6X76aEe8avc43fvHRClTemaxG'
+                    ),
+                    CURLOPT_FILE => $FileHandle,
+                ));
+
+                $response = curl_exec($curl);
+
+                curl_close($curl);
+
+                fclose($FileHandle);
+                if (file_exists($filePath)) {
+                    $wpdb->update($this->tableName, ['pdffile' => $fileName], ['id' => $statusID]);
+
+                    $_SESSION['pdfconverted'] = true;
+                    wp_safe_redirect(site_url('list-status?status=success'));
+                } else {
+                    wp_safe_redirect(site_url('list-status?status=fail'));
+                }
+            }
+        } else {
+            wp_safe_redirect(site_url());
+        }
+        exit;
     }
 
     function generatedocx()
@@ -57,11 +179,11 @@ class ComptaFormule
             $genre = ($_POST['genre'] ?? '') == 1 ? 'Monsieur' : 'Madame';
             $fullname = sanitize_text_field($_POST['fullname'] ?? '');
 
-            $birthdayInit = $_POST['birthday'] ?? '';
+
             setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR@euro', 'fr_FR.utf8', 'fr-FR', 'fra');
             date_default_timezone_set('Europe/Paris');
-            $birthday = strftime('%d %B %Y', strtotime(sanitize_text_field($birthdayInit)));
-            $formatter = new IntlDateFormatter('en_US', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+            $birthdayInit = $_POST['birthdayclient'] ?? '';
+            $birthday = strftime('%d %B %Y', strtotime($birthdayInit));
 
             $birthplace = sanitize_text_field($_POST['birthplace'] ?? '');
             $cin = sanitize_text_field($_POST['cin'] ?? '');
@@ -90,9 +212,9 @@ class ComptaFormule
             );
 
             $fileName = $this->generateFileName($companyName);
-            $filePath = '/src/saved-doc/' . $fileName . '.docx';
+            $filePath = '/status/' . $fileName . '.docx';
 
-            $pathToSave = plugin_dir_path(__FILE__) .  $filePath;
+            $pathToSave = wp_upload_dir()['basedir'] .  $filePath;
 
             $this->templateProcessor->saveAs($pathToSave);
 
@@ -104,18 +226,20 @@ class ComptaFormule
                 $wpdb->insert($this->tableName, array(
                     'fullname'      => $fullname,
                     'companyname'   => $companyName,
-                    'docxfile'      => $fileName
+                    'docxfile'      => $fileName,
+                    'pdffile'       => 0
                 ));
 
-                wp_redirect(site_url('status-creator?status=success'));
+                wp_safe_redirect(site_url('status-creator?status=success'));
 
-                $_SESSION['DocxLocation'] = plugins_url($filePath, __FILE__);
+                $_SESSION['DocxLocation'] = esc_url(wp_upload_dir()['baseurl'] . $filePath);
             } else {
-                wp_redirect(site_url('status-creator?status=fail'));
+                wp_safe_redirect(site_url('status-creator?status=fail'));
             }
         } else {
-            wp_redirect(esc_url(site_url()));
+            wp_safe_redirect(esc_url(site_url()));
         }
+        exit;
     }
 
     function generateFileName($name)
@@ -131,7 +255,7 @@ class ComptaFormule
     function custom_folder_plugin_activate()
     {
         $upload_dir = wp_upload_dir();
-        $folder_name = 'docx'; // Change this to your desired folder name.
+        $folder_name = 'status'; // Change this to your desired folder name.
         $new_folder_path = $upload_dir['basedir'] . '/' . $folder_name;
 
         if (!file_exists($new_folder_path)) {
@@ -159,6 +283,10 @@ class ComptaFormule
             return plugin_dir_path(__FILE__) . 'inc/template-status.php';
         } elseif (is_page('list-status')) {
             return plugin_dir_path(__FILE__) . 'inc/template-list-status.php';
+        } elseif (is_page('login')) {
+            return plugin_dir_path(__FILE__) . 'inc/template-login.php';
+        } elseif (is_page('lost-password')) {
+            return plugin_dir_path(__FILE__) . 'inc/template-forget-pwd.php';
         }
         return $template;
     }
@@ -168,6 +296,10 @@ class ComptaFormule
         if (is_page('status-creator') || is_page('list-status')) {
             wp_enqueue_style('compta-style', plugin_dir_url(__FILE__) . 'src/compta-style.css');
             wp_enqueue_style('bootstrap', '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+        } elseif (is_page('login') || is_page('lost-password')) {
+            wp_enqueue_style('bootstrap', '//cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css');
+            wp_enqueue_style('login-style', plugin_dir_url(__FILE__) . 'src/iofrm-style.css');
+            wp_enqueue_style('login-style-2', plugin_dir_url(__FILE__) . 'src/iofrm-theme1.css');
         }
     }
 }

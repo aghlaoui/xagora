@@ -16,6 +16,11 @@
                         List Des Status
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo esc_url(wp_logout_url(site_url('login'))) ?>">
+                        LogOut
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
