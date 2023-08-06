@@ -42,7 +42,7 @@ $convertToDocx = new ConvertToDocx();
                         </div>
                         <div class="mb-3 col-3 form-group">
                             <label for="fullname">Nom complet</label>
-                            <input class="form-control" type="text" name="fullname" id="fullname" placeholder="Nom complet">
+                            <input class="form-control" type="text" name="fullname" id="fullname" placeholder="Nom complet" required>
                         </div>
                         <div class="mb-3 col-5 form-group">
                             <label for="birthdayclient">Date de naissance du client</label>

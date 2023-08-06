@@ -134,7 +134,7 @@ function slider_select_link($field)
     $field['choices'] = array();
 
     $query = new WP_Query(array(
-        'post_type' => array('post', 'service', 'project', 'page'),
+        'post_type'      => array('post', 'service', 'project', 'page'),
         'posts_per_page' => -1,
     ));
 
